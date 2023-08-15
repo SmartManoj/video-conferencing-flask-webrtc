@@ -54,11 +54,11 @@ function setAudioMuteState(flag) {
     console.log("setAudioMuteState: ", local_stream);
     local_stream.getAudioTracks().forEach((track) => { track.enabled = !flag; });
     // switch button icon
-    document.getElementById("mute_icon").innerText = (flag) ? "mic_off" : "mic";
+    // document.getElementById("mute_icon").innerText = (flag) ? "mic_off" : "mic";
 }
 function setVideoMuteState(flag) {
     let local_stream = myVideo.srcObject;
     local_stream.getVideoTracks().forEach((track) => { track.enabled = !flag; });
     // switch button icon
-    document.getElementById("vid_mute_icon").innerText = (flag) ? "videocam_off" : "videocam";
+    // document.getElementById("vid_mute_icon").innerText = (flag) ? "videocam_off" : "videocam";
 }

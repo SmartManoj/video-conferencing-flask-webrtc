@@ -18,6 +18,7 @@ def join():
     mute_audio = request.args.get('mute_audio') # 1 or 0
     mute_video = request.args.get('mute_video') # 1 or 0
     room_id = request.args.get('room_id')
+    # join?display_name=abc&mute_audio=0&mute_video=0&room_id=123
     session[room_id] = {"name": display_name,
                         "mute_audio": mute_audio, "mute_video": mute_video}
     return render_template("join.html", room_id=room_id, display_name=session[room_id]["name"], mute_audio=session[room_id]["mute_audio"], mute_video=session[room_id]["mute_video"])
@@ -94,4 +95,7 @@ def on_data(data):
 
 
 if any(platform.win32_ver()):
-    socketio.run(app, debug=True)
+    socketio.run(app,
+                    host="0.0.0.0",
+                    port=5001,
+                  debug=0)
